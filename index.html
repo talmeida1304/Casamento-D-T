@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#59614b">
+<title>Diana & Tiago — 11.09.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Italianno&display=swap" rel="stylesheet">
+<style>
+:root{
+ --paper:#fbf8f1;--cream:#f3eee3;--sage:#687258;--sage-dark:#505943;
+ --gold:#b39a68;--ink:#2e3029;--muted:#77766d;--line:rgba(80,89,67,.18);--white:#fffdf8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p{margin-top:0}
+.nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 5vw;color:#fff;transition:.35s ease}
+.nav.scrolled{background:rgba(251,248,241,.95);color:var(--ink);box-shadow:0 8px 28px rgba(0,0,0,.05);backdrop-filter:blur(8px)}
+.monogram{font:600 27px "Cormorant Garamond",serif;letter-spacing:.08em}
+.nav-links{display:flex;gap:25px;text-transform:uppercase;letter-spacing:.16em;font-size:10px}
+.nav-links a{opacity:.88;transition:.2s}.nav-links a:hover{color:var(--gold);opacity:1}
+.hero{min-height:94vh;position:relative;display:grid;place-items:center;overflow:hidden;background:
+ linear-gradient(90deg,rgba(26,29,22,.63),rgba(26,29,22,.12)),
+ url("romantico-horizonte.png") center/cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.30))}
+.hero-content{position:relative;z-index:2;width:min(900px,88%);color:#fff;text-align:center;padding-top:65px}
+.eyebrow{text-transform:uppercase;letter-spacing:.34em;font-size:10px}
+.hero h1{font:500 clamp(72px,13vw,154px)/.72 "Cormorant Garamond",serif;letter-spacing:-.045em;margin:16px 0 25px}
+.hero h1 span{display:block;font:1em/1 Italianno,cursive;color:#ead9b7;margin:18px 0}
+.date{font:400 25px "Cormorant Garamond",serif;letter-spacing:.24em}
+.hero-note{font:29px Italianno,cursive;color:#f0dfbd;margin:9px 0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 22px;border:1px solid currentColor;border-radius:2px;text-transform:uppercase;letter-spacing:.16em;font-size:9px;transition:.25s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.08)}
+.btn-dark{background:var(--sage-dark);border-color:var(--sage-dark);color:#fff}
+.section{padding:100px 7vw;position:relative}
+.section-title{text-align:center;font:500 clamp(40px,5vw,60px)/.95 "Cormorant Garamond",serif;margin-bottom:10px}
+.section-subtitle{text-align:center;color:var(--muted);text-transform:uppercase;letter-spacing:.22em;font-size:9px;margin-bottom:48px}
+.ornament{width:76px;height:1px;background:var(--gold);margin:18px auto 24px;position:relative}
+.ornament:after{content:"♥";position:absolute;left:50%;top:-12px;transform:translateX(-50%);padding:0 9px;background:var(--paper);color:var(--gold);font-size:10px}
+.countdown-wrap{padding:52px 6vw;background:var(--cream);border-block:1px solid var(--line);text-align:center}
+.countdown-label{font:25px "Cormorant Garamond",serif}
+.countdown{display:flex;justify-content:center;gap:clamp(25px,7vw,90px);margin-top:18px}
+.counter{min-width:68px}.counter strong{display:block;color:var(--sage-dark);font:500 clamp(42px,6vw,68px)/1 "Cormorant Garamond",serif}
+.counter small{text-transform:uppercase;letter-spacing:.2em;font-size:8px;color:var(--muted)}
+.timeline{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(6,1fr);position:relative}
+.timeline:before{content:"";position:absolute;left:7%;right:7%;top:29px;height:1px;background:var(--line)}
+.event{position:relative;text-align:center;padding:0 8px}
+.event-icon{width:58px;height:58px;margin:auto auto 16px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;background:var(--paper);position:relative;z-index:1;font-size:20px}
+.event-time{font:500 22px "Cormorant Garamond",serif;color:var(--sage-dark)}
+.event-name{text-transform:uppercase;letter-spacing:.10em;font-size:8px;color:var(--muted);margin-top:4px}
+.venue{display:grid;grid-template-columns:1.1fr .9fr;background:var(--cream);min-height:560px}
+.venue-photo{min-height:560px;background:linear-gradient(rgba(45,55,35,.06),rgba(45,55,35,.06)),url("romantico-local.png") center/cover}
+.venue-info{display:flex;align-items:center;padding:70px 8vw 70px 7vw}
+.venue-info h2{font:500 clamp(48px,6vw,78px)/.88 "Cormorant Garamond",serif;margin:14px 0 22px}
+.venue-info h2 span{font:400 .43em "Cormorant Garamond",serif;letter-spacing:.10em}
+.venue-info p{color:var(--muted);max-width:470px}
+.address{margin:28px 0;border-left:2px solid var(--gold);padding-left:15px;font-size:13px}
+.story-intro{max-width:720px;margin:0 auto 52px;text-align:center;font:400 24px/1.45 "Cormorant Garamond",serif}
+.story-intro em{font-family:Italianno,cursive;font-size:34px;color:var(--sage-dark);font-style:normal}
+.story-grid{max-width:1080px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.story-card{text-align:center}
+.story-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;filter:saturate(.78);transition:.7s ease}
+.story-card:hover img{transform:scale(1.025);filter:saturate(.9)}
+.story-card h3{font:500 21px "Cormorant Garamond",serif;margin:15px 0 1px}
+.story-card p{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.10em;margin:0}
+.story-card:first-child img{object-position:35% center}
+.story-card:nth-child(2) img{object-position:62% center}
+.story-card:nth-child(3) img{object-position:85% center}
+.story-card:nth-child(4) img{object-position:center}
+.story-card.proposal img{aspect-ratio:4/5}
+.info-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.info-card{background:var(--paper);padding:58px 45px;text-align:center}
+.info-card h3{font:500 38px "Cormorant Garamond",serif;margin-bottom:10px}
+.info-card p{color:var(--muted);max-width:420px;margin:auto}
+.rsvp{background:var(--sage-dark);color:#fff;text-align:center}
+.rsvp .section-title{color:#fff}.rsvp .section-subtitle{color:rgba(255,255,255,.62)}
+.rsvp .ornament{background:#d7bd88}.rsvp .ornament:after{background:var(--sage-dark);color:#d7bd88}
+.rsvp-copy{max-width:660px;margin:auto}.rsvp-copy .lead{font:400 29px/1.25 "Cormorant Garamond",serif;margin-bottom:12px}
+.rsvp-copy p{color:rgba(255,255,255,.72)}
+.music-note{font:34px Italianno,cursive;color:#e5d3ad;margin:22px 0}
+.footer{min-height:470px;display:grid;place-items:center;text-align:center;color:#fff;position:relative;background:linear-gradient(rgba(27,31,23,.58),rgba(27,31,23,.68)),url("romantico-horizonte.png") center/cover}
+.footer h2{font:500 clamp(45px,7vw,84px)/.92 "Cormorant Garamond",serif;margin:0 auto 15px}
+.footer p{font:32px Italianno,cursive;color:#ead9b7}
+.copyright{position:absolute;bottom:20px;text-transform:uppercase;letter-spacing:.2em;font-size:8px;opacity:.65}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+ .nav-links{display:none}.nav{padding:15px 6vw}
+ .hero{min-height:88vh;background-position:58% center}.hero-content{padding-top:55px}
+ .hero h1{font-size:clamp(66px,22vw,110px)}.date{font-size:20px}
+ .countdown{gap:15px}.counter{min-width:54px}.counter strong{font-size:38px}
+ .section{padding:78px 6vw}.timeline{grid-template-columns:repeat(2,1fr);gap:38px 8px}.timeline:before{display:none}
+ .event{padding:0 4px}.event-name{font-size:8px;line-height:1.35}
+ .venue{grid-template-columns:1fr}.venue-photo{min-height:390px}.venue-info{padding:58px 8vw}
+ .story-grid{grid-template-columns:repeat(2,1fr);gap:24px 12px}.story-card.proposal{grid-column:1/-1;max-width:62%;margin:auto}
+ .info-grid{grid-template-columns:1fr}.info-card{padding:45px 25px}
+ .story-intro{font-size:22px}
+}
+@media(max-width:520px){
+ .hero{min-height:82vh;background-position:57% center}.hero-note{font-size:26px}.btn{width:100%;max-width:310px}
+ .countdown-wrap{padding:42px 4vw}.countdown{gap:6px;justify-content:space-between}.counter{min-width:0;flex:1}
+ .counter strong{font-size:34px}.counter small{font-size:7px;letter-spacing:.14em}
+ .timeline{gap:30px 5px}.event-icon{width:52px;height:52px;font-size:18px}.event-time{font-size:21px}
+ .venue-photo{min-height:320px;background-position:center}.venue-info{padding:48px 7vw}.venue-info h2{font-size:54px}
+ .story-grid{gap:22px 10px}.story-card h3{font-size:19px}.story-card p{font-size:8px}
+ .story-card.proposal{max-width:72%}.story-intro{font-size:21px}
+ .rsvp-copy .lead{font-size:27px}
+ .footer{min-height:390px}.footer p{font-size:28px}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+ <a href="#inicio" class="monogram">T &nbsp;♥&nbsp; D</a>
+ <div class="nav-links">
+  <a href="#dia">O nosso dia</a><a href="#lugar">O lugar</a><a href="#historia">A nossa história</a><a href="#presenca">RSVP</a>
+ </div>
+</nav>
+
+<header class="hero" id="inicio">
+ <div class="hero-content reveal">
+  <div class="eyebrow">O nosso casamento</div>
+  <h1>Tiago <span>&amp;</span> Diana</h1>
+  <div class="date">11 · 09 · 2026</div>
+  <div class="hero-note">Um novo capítulo começa aqui.</div>
+  <a href="#dia" class="btn">Entrar no nosso dia ↓</a>
+ </div>
+</header>
+
+<section class="countdown-wrap" aria-label="Contagem decrescente">
+ <div class="countdown-label">Falta pouco para o nosso dia</div>
+ <div class="countdown">
+  <div class="counter"><strong id="days">--</strong><small>Dias</small></div>
+  <div class="counter"><strong id="hours">--</strong><small>Horas</small></div>
+  <div class="counter"><strong id="minutes">--</strong><small>Minutos</small></div>
+  <div class="counter"><strong id="seconds">--</strong><small>Segundos</small></div>
+ </div>
+</section>
+
+<section class="section" id="dia">
+ <h2 class="section-title reveal">O nosso dia</h2><div class="ornament"></div>
+ <div class="section-subtitle reveal">Um dia, mil momentos especiais</div>
+ <div class="timeline reveal">
+  <div class="event"><div class="event-icon">🥂</div><div class="event-time">18:00</div><div class="event-name">Receção dos convidados</div></div>
+  <div class="event"><div class="event-icon">💍</div><div class="event-time">18:30</div><div class="event-name">Cerimónia</div></div>
+  <div class="event"><div class="event-icon">🍸</div><div class="event-time">19:15</div><div class="event-name">Aperitivos</div></div>
+  <div class="event"><div class="event-icon">🍽</div><div class="event-time">20:30</div><div class="event-name">Jantar</div></div>
+  <div class="event"><div class="event-icon">🎂</div><div class="event-time">23:00</div><div class="event-name">Corte do bolo</div></div>
+  <div class="event"><div class="event-icon">♪</div><div class="event-time">23:15</div><div class="event-name">Encontramo-nos no bar</div></div>
+ </div>
+</section>
+
+<section class="venue" id="lugar">
+ <div class="venue-photo"></div>
+ <div class="venue-info">
+  <div class="reveal">
+   <div class="eyebrow" style="color:var(--sage)">O lugar</div>
+   <h2>Pena<br><span>Restaurante</span></h2>
+   <p>É aqui que vamos reunir as pessoas que mais amamos para celebrar este dia tão especial.</p>
+   <div class="address">Rua das Pena 342<br>Vila Caiz, Amarante</div>
+   <a class="btn btn-dark" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Pena%20Restaurante%2C%20Amarante">Como chegar ↗</a>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="historia">
+ <h2 class="section-title reveal">A nossa história</h2><div class="ornament"></div>
+ <div class="section-subtitle reveal">Um encontro que se tornou caminho</div>
+ <div class="story-intro reveal">
+  A partilhar o mesmo espaço na Faculdade, foi apenas em meados de 2021 que os seus caminhos se cruzaram pela primeira vez.
+  <br><br>
+  A <strong>18 de setembro de 2021</strong>, deram o primeiro nó das suas vidas.
+  <br><br>
+  Desde então, colecionaram momentos, sonhos e projetos incríveis. E agora, no dia 11, rodeados pelas suas famílias e pelos amigos mais especiais, dão <em>o nó mais importante</em> das suas vidas.
+ </div>
+ <div class="story-grid">
+  <article class="story-card reveal"><img src="romantico-horizonte.png" alt="Duas mãos que se encontram ao pôr do sol"><h3>O primeiro nó</h3><p>18 · 09 · 2021</p></article>
+  <article class="story-card reveal"><img src="romantico-local.png" alt="Momento romântico ao entardecer, sem rostos visíveis"><h3>Os dias que vieram</h3><p>Momentos para guardar</p></article>
+  <article class="story-card reveal"><img src="romantico-horizonte.png" alt="Mãos dadas num campo ao entardecer"><h3>Os nossos projetos</h3><p>Sonhos partilhados</p></article>
+  <article class="story-card proposal reveal"><img src="pedido.png" alt="Fotografia do pedido de casamento"><h3>O pedido</h3><p>O dia em que o para sempre ganhou forma</p></article>
+ </div>
+</section>
+
+<section class="section" id="detalhes">
+ <h2 class="section-title reveal">Só queremos que venham</h2><div class="ornament"></div>
+ <div class="section-subtitle reveal">E que celebrem connosco</div>
+ <div class="info-grid reveal">
+  <div class="info-card"><h3>Com quem amamos</h3><p>Este dia foi pensado para ser vivido perto das pessoas que fazem parte da nossa história.</p></div>
+  <div class="info-card"><h3>Do vosso jeito</h3><p>Escolham o que vos fizer sentir bem. O mais importante para nós é ter-vos connosco.</p></div>
+ </div>
+</section>
+
+<section class="section rsvp" id="presenca">
+ <h2 class="section-title reveal">Confirma a tua presença</h2><div class="ornament"></div>
+ <div class="section-subtitle reveal">A tua presença é o melhor presente</div>
+ <div class="rsvp-copy reveal">
+  <div class="lead">Queremos muito celebrar este dia convosco.</div>
+  <p>Confirma a tua presença e, se quiseres, deixa-nos também uma mensagem e uma sugestão de música para a nossa noite.</p>
+  <div class="music-note">E que música não pode faltar?</div>
+  <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeL38IHUpxee1ZhN8KjNEqwNFEtfvqpaXIB6iDBQ1FWpbdCTA/viewform" target="_blank" rel="noopener">Confirmar presença ♥</a>
+ </div>
+</section>
+
+<footer class="footer">
+ <div class="reveal">
+  <h2>Mal podemos esperar<br>por vos ter connosco.</h2>
+  <p>Até já, no nosso dia. ♥</p>
+  <div style="font:400 24px 'Cormorant Garamond',serif;letter-spacing:.12em">11 · 09 · 2026</div>
+  <div style="margin-top:8px;letter-spacing:.18em;font-size:10px;text-transform:uppercase">Diana & Tiago</div>
+ </div>
+ <div class="copyright">Amarante · Portugal · Com amor</div>
+</footer>
+
+<script>
+const target = new Date("2026-09-11T18:00:00+01:00").getTime();
+function updateCountdown(){
+ const now=Date.now(), diff=Math.max(0,target-now);
+ const d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), m=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
+ document.getElementById("days").textContent=d;document.getElementById("hours").textContent=String(h).padStart(2,"0");
+ document.getElementById("minutes").textContent=String(m).padStart(2,"0");document.getElementById("seconds").textContent=String(s).padStart(2,"0");
+}
+updateCountdown();setInterval(updateCountdown,1000);
+const nav=document.getElementById("nav");
+addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>50));
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
